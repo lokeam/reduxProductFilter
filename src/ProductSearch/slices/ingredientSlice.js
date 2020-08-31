@@ -51,12 +51,12 @@ export function fetchIngredients() {
   }
 }
 
-export const selectFilteredIngredients = createSelector(ingredientsSelector, function (ingredientsObj, input) {
+export const filteredIngredientSelector = createSelector(ingredientsSelector, function (ingredientsObj, input) {
   return input;
 }, function (ingredients, input) {
 
   if (!ingredients.ingredientsLoading) {
-    console.log('ingredients slice, selectFilteredIngredients, ingredients, ',ingredients);
+    console.log('ingredients slice, filteredIngredientSelector, ingredients, ',ingredients);
     let ingredientsArr = ingredients.ingredients;
 
     return ingredientsArr.filter(function (item) {

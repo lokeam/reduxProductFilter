@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createSelector } from '@reduxjs/toolkit'
 
 export const initialState = {
   productsLoading: false,
@@ -50,3 +50,22 @@ export function fetchProducts() {
     }
   }
 }
+
+export const filteredProductSelector = createSelector(productsSelector, function (productsObj, input) {
+  return input;
+}, function (products, input) {
+
+  if (!products.productsLoading) {
+    console.log('filteredProductSelector, testing products: ', products);
+    let productsArr = products.products;
+    //console.log('productsArr: ', productsArr);
+
+    return productsArr.filter(function (item) {
+
+      //console.log('item: ', item);
+      return item.ingredientIds.some(function (id) {
+        return input.includes(id);
+      });
+    });
+  }
+});
