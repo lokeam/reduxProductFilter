@@ -1,6 +1,17 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Redux Product Filter
 
-## Available Scripts
+A simple React-Redux + hooks app demonstrating filtering two sets of data from two product api endpoints. CSS written written in the [mobile-first](https://zellwk.com/blog/how-to-write-mobile-first-css/) approach using [BEM](http://getbem.com/) syntax.
+
+Bootstrapped with the [Redux Toolkit](https://redux-toolkit.js.org/).
+
+## Setup
+
+1. `npm install` all the things.
+
+2. `npm start` to run
+
+
+## (unused) Available Scripts
 
 In the project directory, you can run:
 
