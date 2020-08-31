@@ -33,3 +33,19 @@ export const productsSelector = state => state.products;
 
 // Reducer
 export default productsSlice.reducer;
+
+export function fetchProducts() {
+  return async dispatch => {
+    dispatch(getProducts())
+
+    try {
+      const response = await fetch('https://raw.githubusercontent.com/daily-harvest/opportunities/master/web-1/data/products.json');
+      const data = await response.json();
+      console.log('productSlice, data: ', data);
+
+      dispatch( getProductsSuccess(data) )
+    } catch (error) {
+      dispatch(getProductsFailure())
+    }
+  }
+}
