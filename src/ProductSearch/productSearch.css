@@ -1,0 +1,38 @@
+
+.content {
+  /*debug*/
+  border: 10px solid red;
+}
+
+.content__search {
+  width: 100%;
+  padding: 20px;
+
+  font-size: 1.1em;
+  margin: 0 0 20px 0;
+  display: block;
+  position: relative;
+  /* debug */
+  border: 10px solid purple;
+}
+
+.content__left,
+.content__right {
+  min-height: 350px;
+}
+
+.content__left {
+
+  /*debug*/
+  border: 10px solid blue;
+}
+
+.content__right {
+  /* debug */
+  border: 10px solid green;
+}
+
+.content__right--item {
+  /* debug */
+  border: 10px solid orange;
+}
