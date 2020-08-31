@@ -6,9 +6,6 @@ section {
 }
 
 .content {
-  /*debug*/
-  border: 10px solid red;
-
   display: flex;
   flex-direction: column-reverse;
   position: relative;
@@ -21,15 +18,14 @@ section {
   width: 100%;
   padding: 20px;
   font-size: 1.1em;
+  border: none;
   margin: 0 0 20px 0;
+  outline: none;
   display: block;
   position: fixed;
   background-color: #fff;
   z-index: 50;
   overflow: hidden;
-
-  /* debug */
-  border: 10px solid purple;
 }
 
 .content__left,
@@ -38,9 +34,6 @@ section {
 }
 
 .content__left {
-  /*debug*/
-  border: 10px solid blue;
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -49,9 +42,6 @@ section {
 }
 
 .content__right {
-  /* debug */
-  border: 10px solid green;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -64,9 +54,6 @@ section {
 }
 
 .content__right--item {
-  /* debug */
-  border: 10px solid orange;
-
   max-width: 160px;
   padding: 15px;
 }
@@ -108,8 +95,6 @@ section {
     margin: 20px 0 20px 0;
     display: block;
     position: relative;
-
-    /* padding: 6px 0 7px; */
     padding: 10px 0px 10px 50px;
     min-width: 0;
     background: none;
@@ -136,6 +121,5 @@ section {
 
   .content__right {
     width: 75%;
-    /* justify-content: flex-start; */
   }
 }

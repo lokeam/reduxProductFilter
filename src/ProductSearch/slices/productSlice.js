@@ -42,7 +42,6 @@ export function fetchProducts() {
     try {
       const response = await fetch('https://raw.githubusercontent.com/daily-harvest/opportunities/master/web-1/data/products.json');
       const data = await response.json();
-      //console.log('productSlice, data: ', data);
 
       dispatch( getProductsSuccess(data) )
     } catch (error) {
@@ -56,13 +55,10 @@ export const filteredProductSelector = createSelector(productsSelector, function
 }, function (products, input) {
 
   if (!products.productsLoading) {
-    console.log('filteredProductSelector, testing products: ', products);
     let productsArr = products.products;
-    //console.log('productsArr: ', productsArr);
 
     return productsArr.filter(function (item) {
 
-      //console.log('item: ', item);
       return item.ingredientIds.some(function (id) {
         return input.includes(id);
       });

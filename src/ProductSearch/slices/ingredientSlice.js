@@ -43,7 +43,6 @@ export function fetchIngredients() {
       const response = await fetch('https://raw.githubusercontent.com/daily-harvest/opportunities/master/web-1/data/ingredients.json');
       const data = await response.json();
 
-      //console.log('ingredientSlice, data: ', data);
       dispatch(getIngredientsSuccess(data));
     } catch(error) {
       dispatch(getIngredientsFailure);
@@ -56,7 +55,6 @@ export const filteredIngredientSelector = createSelector(ingredientsSelector, fu
 }, function (ingredients, input) {
 
   if (!ingredients.ingredientsLoading) {
-    console.log('ingredients slice, filteredIngredientSelector, ingredients, ',ingredients);
     let ingredientsArr = ingredients.ingredients;
 
     return ingredientsArr.filter(function (item) {
