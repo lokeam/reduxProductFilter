@@ -34,6 +34,7 @@ export const ingredientsSelector = state => state.ingredients;
 // Reducer
 export default ingredientsSlice.reducer;
 
+// Async Fetch
 export function fetchIngredients() {
   return async dispatch => {
     dispatch( getIngredients() );
@@ -42,7 +43,7 @@ export function fetchIngredients() {
       const response = await fetch('https://raw.githubusercontent.com/daily-harvest/opportunities/master/web-1/data/ingredients.json');
       const data = await response.json();
 
-      console.log('ingredientSlice, data: ', data);
+      //console.log('ingredientSlice, data: ', data);
       dispatch(getIngredientsSuccess(data));
     } catch(error) {
       dispatch(getIngredientsFailure);

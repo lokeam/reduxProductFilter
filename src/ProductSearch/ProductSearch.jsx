@@ -18,7 +18,6 @@ const ProductSearch = () => {
   }, [dispatch]);
 
   /* testing */
-
   // console.log('Product search - areProductsLoading: ', productsLoading);
   // console.log('Product search - products: ', products);
   // console.log('Product search - areIncredientsLoading? ', ingredientsLoading);
@@ -30,16 +29,23 @@ const ProductSearch = () => {
               placeholder="search for something, will ya?"/>
         <div className="content">
         <ul className="content__left">
-          <li className="content__left-item">
-            <p>ingredient name</p>
-          </li>
-          <li className="content__left-item">
-            <p>ingredient name</p>
-          </li>
+          { ingredientsHaveErrors && <div>Sorry, we encountered a problem fetching ingredient data. Please try again later.</div> }
+
+          { !ingredientsLoading &&
+            ingredients.map(( ingredient ) => (
+              <li key={`${ingredient.name}-${ingredient.id}`} className='content__left--item'>
+                <h2>{ingredient.name}</h2>
+              </li>
+            ))
+          }
         </ul>
         <ul className="content__right">
-          <ProductSearchItem />
-          <ProductSearchItem />
+          { productsHaveErrors && <div>Sorry, we encountered a problem fetching product data. Please try again later.</div> }
+
+          { !productsLoading &&
+            products.map((product) => <ProductSearchItem product={product}/>)
+          }
+
         </ul>
       </div>
   </>
