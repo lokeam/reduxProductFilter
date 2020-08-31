@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 
 export const initialState = {
   ingredientsLoading: false,
@@ -50,3 +50,17 @@ export function fetchIngredients() {
     }
   }
 }
+
+export const selectFilteredIngredients = createSelector(ingredientsSelector, function (ingredientsObj, input) {
+  return input;
+}, function (ingredients, input) {
+
+  if (!ingredients.ingredientsLoading) {
+    console.log('ingredients slice, selectFilteredIngredients, ingredients, ',ingredients);
+    let ingredientsArr = ingredients.ingredients;
+
+    return ingredientsArr.filter(function (item) {
+      return item.name.toLowerCase().includes(input.toLowerCase());
+    });
+  }
+});
