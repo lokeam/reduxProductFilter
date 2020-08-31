@@ -1,6 +1,5 @@
 import React from 'react';
 import ProductSearchItem from './ProductSearchItem';
-import { useDispatch, useSelector } from 'react-redux';
 import './productSearch.css';
 
 const ProductSearch = () => {
