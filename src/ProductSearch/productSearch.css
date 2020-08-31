@@ -1,17 +1,33 @@
+/* Need to adjust padding for mobile viewports */
+section {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px 50px 10px;
+}
 
 .content {
   /*debug*/
   border: 10px solid red;
+
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  padding: 70px 0 0 0;
+  position: relative;
+  z-index: 10;
 }
 
 .content__search {
   width: 100%;
   padding: 20px;
-
   font-size: 1.1em;
   margin: 0 0 20px 0;
   display: block;
-  position: relative;
+  position: fixed;
+  background-color: #fff;
+  z-index: 50;
+  overflow: hidden;
+
   /* debug */
   border: 10px solid purple;
 }
@@ -22,17 +38,104 @@
 }
 
 .content__left {
-
   /*debug*/
   border: 10px solid blue;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: left;
+  padding: 20px;
 }
 
 .content__right {
   /* debug */
   border: 10px solid green;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+  padding: 5px;
+}
+
+.content__left--item {
+  padding: 25px;
 }
 
 .content__right--item {
   /* debug */
   border: 10px solid orange;
+
+  max-width: 160px;
+  padding: 15px;
+}
+
+.content__right--item {
+  max-width: 160px;
+  padding: 15px;
+}
+
+.product__item--description {
+  text-align: center;
+}
+
+.product__item--img {
+  width: 100%;
+}
+
+.product__item--type {
+  color: #a5a5a5;
+}
+
+@media(min-width: 1020px) {
+  section {
+    padding: 50px;
+  }
+
+  .content {
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .content__search {
+    font: inherit;
+    width: 100%;
+    border: 0;
+    outline: none;
+    height: 1.1876em;
+    margin: 20px 0 20px 0;
+    display: block;
+    position: relative;
+
+    /* padding: 6px 0 7px; */
+    padding: 10px 0px 10px 50px;
+    min-width: 0;
+    background: none;
+    box-sizing: content-box;
+  }
+
+  .content__left {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 0 0 0 50px;
+    width: 25%;
+    max-width: 270px;
+  }
+  .content__left--item {
+    padding: 10px 0 10px 0;
+  }
+
+  .content__right--item {
+    height: unset;
+    max-width: unset;
+    padding: 20px;
+  }
+
+  .content__right {
+    width: 75%;
+    /* justify-content: flex-start; */
+  }
 }

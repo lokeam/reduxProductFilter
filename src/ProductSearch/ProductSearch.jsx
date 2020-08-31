@@ -27,7 +27,7 @@ const ProductSearch = () => {
 
   /* grab ids used for sorting products, throw them back into state for product filtering */
 	useEffect(() => {
-    
+
     /* prevent sorting ingredients before data is ready */
     if (sortedIngredients !== undefined) {
       const sortedIDs = sortedIngredients.map(item => item.id);
@@ -40,7 +40,7 @@ const ProductSearch = () => {
     <>
       <input className="content__search"
               type="text"
-              placeholder="search for something, will ya?"
+              placeholder="Filter products by ingredient"
               value={ itemFilter }
               onChange={ event => setItemFilter(event.target.value) }/>
         <div className="content">
