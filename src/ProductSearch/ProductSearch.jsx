@@ -4,6 +4,9 @@ import { fetchProducts, productsSelector, filteredProductSelector } from './slic
 import { fetchIngredients, ingredientsSelector, filteredIngredientSelector } from './slices/ingredientSlice';
 
 import ProductSearchItem from './ProductSearchItem';
+
+import errorImage from './error_animation.gif';
+import errorResponse from './error.json';
 import './productSearch.css';
 
 const ProductSearch = () => {
@@ -26,7 +29,7 @@ const ProductSearch = () => {
   }, [dispatch]);
 
   /* grab ids used for sorting products, throw them back into state for product filtering */
-	useEffect(() => {
+  useEffect(() => {
 
     /* prevent sorting ingredients before data is ready */
     if (sortedIngredients !== undefined) {
@@ -59,7 +62,12 @@ const ProductSearch = () => {
           { productsHaveErrors && <div>Sorry, we encountered a problem fetching product data. Please try again later.</div> }
 
           { !productsLoading &&
-            sortedProducts.map((product) => <ProductSearchItem product={product}/>)
+            sortedProducts.map((product) => <ProductSearchItem product={product }/>)
+          }
+
+          {
+            !productsLoading && 
+            sortedProducts.length === 0 && <ProductSearchItem product={ errorResponse } errorImg={ errorImage } />
           }
 
         </ul>

@@ -1,0 +1,8 @@
+{
+  "id": "error",
+  "name": "error code: 404",
+  "collection": "oops, we can't find what you're looking for =(",
+  "image": {
+      "url": ""
+  }
+}

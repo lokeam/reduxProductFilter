@@ -1,10 +1,17 @@
 import React from 'react';
 
-const ProductSearchItem = ({product}) => {
-  const { id, collection, image: {url}, name } = product;
+const ProductSearchItem = ({product, errorImg}) => {
+  const { id, collection, name } = product;
+  let { image: {url} } = product; 
+  let hasError = '';
+
+  if (id === 'error') {
+    hasError = 'hasError';
+    url = errorImg;
+  }
 
   return (
-    <li className="content__right--item product__item" key={`${id}-${collection}`}>
+    <li className={`content__right--item product__item ${hasError}`} key={`${id}-${collection}`}>
       <picture>
         <img className="product__item--img" src={url} alt={`Product: ${collection}, Name: ${name}`}/>
       </picture>
